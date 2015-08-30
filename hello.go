@@ -1,5 +1,5 @@
 package HelloGo
 
-func Tick() map[int]bool {
-	return make(map[int]bool)
+func Tick(world map[int]bool) map[int]bool {
+	return world
 }
