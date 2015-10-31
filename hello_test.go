@@ -1,4 +1,4 @@
-package HelloGo
+package PTTW
 
 import "testing"
 import "github.com/assertgo/assert"
