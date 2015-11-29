@@ -6,6 +6,6 @@ func Generator(nextRandom func() float64) (func(int) []float64) {
 		for i := 0; i < size; i++ {
 			slice = append(slice, nextRandom())
 		}
-		return slice
+		return Normalize(slice)
 	}
 }
