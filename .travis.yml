@@ -1,5 +1,11 @@
+sudo: false
+
 language: go
 go:
-  - 1.5
-install:
+  - 1.5.1
+
+before_install:
   - go get github.com/assertgo/assert
+
+install:
+  - go test ./... -cover
