@@ -27,3 +27,12 @@ func TestNormalizerShouldNormalizeDifferentElements(t *testing.T) {
 	assert.That(normalized[0]).IsEqualTo(float64(0.5))
 	assert.That(normalized[1]).IsEqualTo(float64(1))
 }
+
+func TestNormalizerShouldNormalizeWithNegativeElements(t *testing.T) {
+	assert := assert.New(t)
+	slice := []float64{3, 6, -12}
+	normalized := Normalize(slice)
+	assert.That(normalized[0]).IsEqualTo(float64(0.25))
+	assert.That(normalized[1]).IsEqualTo(float64(0.5))
+	assert.That(normalized[2]).IsEqualTo(float64(-1))
+}
