@@ -4,13 +4,17 @@ import (
 	"io"
 )
 
-func Read(bytes io.Reader) ([]float64, error) {
+func Read(reader io.Reader) ([]float64, error) {
 	slice := []float64{}
 	for {
 		var value float64
-		n, err := fmt.Fscan(bytes, &value)
+		n, err := fmt.Fscan(reader, &value)
 		if n == 0 || err != nil {
-			return slice, err
+			if (err.Error() == "EOF") {
+				break
+			}else {
+				return slice, err
+			}
 		}
 		slice = append(slice, value)
 	}

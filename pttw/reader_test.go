@@ -23,7 +23,7 @@ func TestReaderShouldReadFloatSliceWithTowValues(t *testing.T) {
 
 func TestReaderShouldReadError(t *testing.T) {
 	assert := assert.New(t)
-	reader := strings.NewReader("")
+	reader := strings.NewReader("ff")
 	_, err := Read(reader)
 	assert.ThatBool(err == nil).IsFalse()
 }
