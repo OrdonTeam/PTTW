@@ -18,7 +18,7 @@ func main() {
 }
 
 func inputFile() *os.File {
-	name := findParam("-in", os.Args)
+	name := pttw.FindParam("-in", os.Args)
 	if (name == "") {
 		return os.Stdin
 	}
@@ -30,7 +30,7 @@ func inputFile() *os.File {
 }
 
 func outputFile() *os.File {
-	name := findParam("-out", os.Args)
+	name := pttw.FindParam("-out", os.Args)
 	if (name == "") {
 		return os.Stdout
 	}
@@ -42,7 +42,7 @@ func outputFile() *os.File {
 }
 
 func snr() float64 {
-	value := findParam("-snr", os.Args)
+	value := pttw.FindParam("-snr", os.Args)
 	if (value == "") {
 		return 20
 	}
@@ -51,13 +51,4 @@ func snr() float64 {
 		log.Fatal(err.Error())
 	}
 	return snr
-}
-
-func findParam(param string, args []string) string {
-	for i := 0; i < len(args) - 1; i++ {
-		if (args[i] == param) {
-			return args[i + 1]
-		}
-	}
-	return ""
 }
