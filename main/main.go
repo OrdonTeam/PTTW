@@ -10,11 +10,15 @@ import (
 )
 
 func main() {
-	inputFile := inputFile()
-	outputFile := outputFile()
-	snr := snr()
-	rand.Seed(time.Now().UTC().UnixNano())
-	pttw.Algorithm(inputFile, outputFile, snr, rand.Float64)
+	if (pttw.ShouldDisplayHelp(os.Args)) {
+		pttw.DisplayHelpScreen(os.Args)
+	}else {
+		inputFile := inputFile()
+		outputFile := outputFile()
+		snr := snr()
+		rand.Seed(time.Now().UTC().UnixNano())
+		pttw.Algorithm(inputFile, outputFile, snr, rand.Float64)
+	}
 }
 
 func inputFile() *os.File {
