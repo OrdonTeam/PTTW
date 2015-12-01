@@ -13,6 +13,7 @@ func Write(slice []float64, writer io.Writer) error {
 		bytes.WriteString(" ")
 	}
 	bytes.WriteString(strconv.FormatFloat(slice[len(slice) - 1], 'f', -1, 64))
+	bytes.WriteString("\n")
 	_, err := writer.Write(bytes.Bytes())
 	return err
 }

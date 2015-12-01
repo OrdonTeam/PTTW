@@ -11,7 +11,7 @@ func TestWriterShouldWriteSlice(t *testing.T) {
 	buffer := bytes.Buffer{}
 	Write([]float64{1}, &buffer)
 	assert.That(true).IsEqualTo(true)
-	assert.That(buffer.String()).IsEqualTo("1")
+	assert.That(buffer.String()).IsEqualTo("1\n")
 }
 
 func TestWriterShouldWriteSliceDelimitedWithSpaces(t *testing.T) {
@@ -19,5 +19,5 @@ func TestWriterShouldWriteSliceDelimitedWithSpaces(t *testing.T) {
 	buffer := bytes.Buffer{}
 	Write([]float64{1, 2}, &buffer)
 	assert.That(true).IsEqualTo(true)
-	assert.That(buffer.String()).IsEqualTo("1 2")
+	assert.That(buffer.String()).IsEqualTo("1 2\n")
 }
