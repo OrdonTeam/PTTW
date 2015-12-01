@@ -17,7 +17,7 @@ func main() {
 		outputFile := outputFile()
 		snr := snr()
 		rand.Seed(time.Now().UTC().UnixNano())
-		pttw.Algorithm(inputFile, outputFile, snr, rand.Float64)
+		pttw.Algorithm(inputFile, outputFile, snr, rand.NormFloat64)
 	}
 }
 
